@@ -42,7 +42,9 @@ function exchangeOAuth2Token(params) {
   }
 }
 
-function trySampleRequest() {
+    });
+	
+	function trySampleRequest() {
     var params = JSON.parse(localStorage.getItem('oauth2-test-params'));
     if (params && params['access_token']) {
       var xhr = new XMLHttpRequest();
@@ -57,4 +59,3 @@ function trySampleRequest() {
       oauth2SignIn();
     }
   }
-    });
