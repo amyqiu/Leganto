@@ -5,7 +5,7 @@
         <!-- $.get("http://localhost:8080/user/get", function(data, status){ -->
             <!-- console.log(data); -->
         <!-- }); -->
-		
+
 		var queryString = location.hash.substring(1);
 
 // Parse the query string to extract access token and other parameters.
@@ -43,14 +43,15 @@ function exchangeOAuth2Token(params) {
 }
 
     });
-	
+
 	function trySampleRequest() {
     var params = JSON.parse(localStorage.getItem('oauth2-test-params'));
     if (params && params['access_token']) {
       var xhr = new XMLHttpRequest();
+      xhr.setRequestHeader('Authorization', 'Bearer ' + params['access_token']);
       xhr.open('GET',
-          'http://localhost:8080/user/get&' +
-          'access_token=' + params['access_token']);
+          'http://localhost:8080/user/get');//&' +
+          //'access_token=' + params['access_token']);
       xhr.onreadystatechange = function (e) {
         console.log(xhr.response);
       };
