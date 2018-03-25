@@ -48,13 +48,13 @@ function exchangeOAuth2Token(params) {
     var params = JSON.parse(localStorage.getItem('oauth2-test-params'));
     if (params && params['access_token']) {
       var xhr = new XMLHttpRequest();
-      xhr.setRequestHeader('Authorization', 'Bearer ' + params['access_token']);
       xhr.open('GET',
           'http://localhost:8080/user/get');//&' +
           //'access_token=' + params['access_token']);
       xhr.onreadystatechange = function (e) {
         console.log(xhr.response);
       };
+      xhr.setRequestHeader('Authorization', 'Bearer ' + params['access_token']);
       xhr.send(null);
     } else {
       oauth2SignIn();
