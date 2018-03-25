@@ -9,7 +9,7 @@ function login(){
  "scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.metadata.readonly&" +
  "include_granted_scopes=true&" +
  "state=state_parameter_passthrough_value&" +
- "redirect_uri=http://localhost:8080/login&" +
+ "redirect_uri=https://amyqiu.github.io/Leganto/dashboard&" +
  "response_type=token&" +
  "client_id=661489902931-8jdkv5dr7t1n5jh6t9m68n5m6o7iscsi.apps.googleusercontent.com";
  
