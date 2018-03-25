@@ -49,7 +49,7 @@ function exchangeOAuth2Token(params) {
     if (params && params['access_token']) {
       var xhr = new XMLHttpRequest();
       xhr.open('GET',
-          'http://localhost:8080/user/get');//&' +
+          'http://localhost:8080/user/get/');//&' +
           //'access_token=' + params['access_token']);
       xhr.onreadystatechange = function (e) {
         console.log(xhr.response);
