@@ -15,6 +15,7 @@ $(document).ready(function() {
 function exchangeOAuth2Token(params, callback) {
   var oauth2Endpoint = 'https://www.googleapis.com/oauth2/v3/tokeninfo';
   if (params['access_token']) {
+    accessTokenGranted = true;
     var xhr = new XMLHttpRequest();
     xhr.open('POST', oauth2Endpoint + '?access_token=' + params['access_token']);
     xhr.onreadystatechange = function (e) {
@@ -25,7 +26,6 @@ function exchangeOAuth2Token(params, callback) {
           response['aud'] &&
           response['aud'] == '661489902931-8jdkv5dr7t1n5jh6t9m68n5m6o7iscsi.apps.googleusercontent.com') {
         localStorage.setItem('oauth2-test-params', JSON.stringify(params) );
-        accessTokenGranted = true;
         callback();
       } else if (xhr.readyState == 4) {
         console.log('There was an error processing the token, another ' +
