@@ -87,7 +87,7 @@ function displayBookshelf(color, response){
     "    </div>" +
     "    <div class='card-content'>" +
     "      <p class='category'>" + bookshelf.name + "</p>" +
-    "      <h3 class='title'>" + bookshelf.books.size() + " Books</h3>" +
+    "      <h3 class='title'>" + bookshelf.books.length + " Books</h3>" +
     "    </div>" +
     "    <div class='card-footer'>" +
     "      <div class='stats'><a href='bookshelf.html'>View Books...</a>" +
