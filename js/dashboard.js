@@ -36,7 +36,7 @@ function exchangeOAuth2Token(params, callback) {
 function getBookshelves(){
   endpointGetRequest('http://localhost:8080/user/get/', function (user) {
     var bookshelfIDs = user.bookshelves;
-    loadBookshelves(bookshelves);
+    loadBookshelves(bookshelfIDs);
   });
 }
 
@@ -47,8 +47,10 @@ function endpointGetRequest(url, callback, id) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.onreadystatechange = function (e) {
-      console.log(xhr.response);
-      callback(xhr.response);
+      if (xhr.readyState == 4){
+        console.log(xhr.response);
+        callback(xhr.response);
+      }
     };
     xhr.setRequestHeader('Authorization', 'Bearer ' + params['access_token']);
     if (id){
