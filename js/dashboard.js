@@ -1,6 +1,9 @@
 $(document).ready(function() {
   var params = JSON.parse(localStorage.getItem('oauth2-test-params'));
-  if (params && params['access_token']) return;
+  if (params && params['access_token']) {
+    getBookshelves();
+    return;
+  }
   var queryString = location.hash.substring(1);
   var params = {};
   var regex = /([^&=]+)=([^&]*)/g, m;
