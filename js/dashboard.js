@@ -95,7 +95,7 @@ function displayBookshelf(color, response){
     "</div>";
 }
 
-function getColor(index, length){
+function getColor(i, length){
   var color = "orange";
   if (i%length == 0){
     color = "pink";
