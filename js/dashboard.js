@@ -1,21 +1,20 @@
-var accessTokenGranted = false;
-
 $(document).ready(function() {
   var queryString = location.hash.substring(1);
   var params = {};
   var regex = /([^&=]+)=([^&]*)/g, m;
-  while (m = regex.exec(queryString) && !accessTokenGranted) {
+  while (m = regex.exec(queryString)) {
     params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
     // Try to exchange the param values for an access token.
-    exchangeOAuth2Token(params, getBookshelves);
+    if (params['access_token']) {
+      exchangeOAuth2Token(params, getBookshelves);
+    }
   }
 });
 
 /* Validate the access token received on the query string. */
 function exchangeOAuth2Token(params, callback) {
   var oauth2Endpoint = 'https://www.googleapis.com/oauth2/v3/tokeninfo';
-  if (params['access_token']) {
-    accessTokenGranted = true;
+  //if (params['access_token']) {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', oauth2Endpoint + '?access_token=' + params['access_token']);
     xhr.onreadystatechange = function (e) {
@@ -33,7 +32,7 @@ function exchangeOAuth2Token(params, callback) {
       }
     };
     xhr.send(null);
-  }
+  //}
 }
 
 function getBookshelves(){
