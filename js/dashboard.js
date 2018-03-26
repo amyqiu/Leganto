@@ -61,7 +61,7 @@ function endpointGetRequest(url, callback, id) {
 }
 
 function loadBookshelves(bookshelves){
-  for(int i = 0; i < bookshelves.size(); i++){
+  for(var i = 0; i < bookshelves.size(); i++){
     var bookshelfId = bookshelves[i];
     var color = getColor(i, bookshelves.size());
 
