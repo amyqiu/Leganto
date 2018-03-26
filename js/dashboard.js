@@ -1,8 +1,10 @@
+var accessTokenGranted = false;
+
 $(document).ready(function() {
   var queryString = location.hash.substring(1);
   var params = {};
   var regex = /([^&=]+)=([^&]*)/g, m;
-  while (m = regex.exec(queryString)) {
+  while (m = regex.exec(queryString) && !accessTokenGranted) {
     params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
     // Try to exchange the param values for an access token.
     exchangeOAuth2Token(params, getBookshelves);
@@ -23,6 +25,7 @@ function exchangeOAuth2Token(params, callback) {
           response['aud'] &&
           response['aud'] == '661489902931-8jdkv5dr7t1n5jh6t9m68n5m6o7iscsi.apps.googleusercontent.com') {
         localStorage.setItem('oauth2-test-params', JSON.stringify(params) );
+        accessTokenGranted = true;
         callback();
       } else if (xhr.readyState == 4) {
         console.log('There was an error processing the token, another ' +
