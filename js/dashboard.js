@@ -48,9 +48,11 @@ function endpointGetRequest(url, callback, id) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.onreadystatechange = function (e) {
-      if (xhr.readyState == 4){
+      if (xhr.readyState == 4 && xhr.status == 200){
         console.log(xhr.response);
         callback(xhr.response);
+      } else if (xhr.readyState == 4) {
+        console.log('An error has occurred!');
       }
     };
     xhr.setRequestHeader('Authorization', 'Bearer ' + params['access_token']);
