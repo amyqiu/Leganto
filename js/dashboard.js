@@ -34,7 +34,8 @@ function exchangeOAuth2Token(params, callback) {
 }
 
 function getBookshelves(){
-  endpointGetRequest('http://localhost:8080/user/get/', function (user) {
+  endpointGetRequest('http://localhost:8080/user/get/', function (response) {
+    var user = JSON.parse(response);
     var bookshelfIDs = user.bookshelves;
     loadBookshelves(bookshelfIDs);
   });
@@ -62,8 +63,7 @@ function endpointGetRequest(url, callback, id) {
   }
 }
 
-function loadBookshelves(response){
-  var bookshelves = JSON.parse(response);
+function loadBookshelves(bookshelves){
   for(var i = 0; i < bookshelves.size(); i++){
     var bookshelfId = bookshelves[i];
     var color = getColor(i, bookshelves.size());
