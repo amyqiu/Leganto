@@ -1,26 +1,16 @@
-    $(document).ready(function() {
-
-        // Javascript method's body can be found in assets/js/demos.js
-        // demo.initDashboardPageCharts();
-        <!-- $.get("http://localhost:8080/user/get", function(data, status){ -->
-            <!-- console.log(data); -->
-        <!-- }); -->
-
-		var queryString = location.hash.substring(1);
-
-// Parse the query string to extract access token and other parameters.
-// This code is useful if you set a value for the 'state' parameter when
-// redirecting the user to the OAuth 2.0 server, but otherwise isn't needed.
-var params = {};
-var regex = /([^&=]+)=([^&]*)/g, m;
-while (m = regex.exec(queryString)) {
-  params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-  // Try to exchange the param values for an access token.
-  exchangeOAuth2Token(params);
-}
+$(document).ready(function() {
+  var queryString = location.hash.substring(1);
+  var params = {};
+  var regex = /([^&=]+)=([^&]*)/g, m;
+  while (m = regex.exec(queryString)) {
+    params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+    // Try to exchange the param values for an access token.
+    exchangeOAuth2Token(params, getBookshelves);
+  }
+});
 
 /* Validate the access token received on the query string. */
-function exchangeOAuth2Token(params) {
+function exchangeOAuth2Token(params, callback) {
   var oauth2Endpoint = 'https://www.googleapis.com/oauth2/v3/tokeninfo';
   if (params['access_token']) {
     var xhr = new XMLHttpRequest();
@@ -33,6 +23,7 @@ function exchangeOAuth2Token(params) {
           response['aud'] &&
           response['aud'] == '661489902931-8jdkv5dr7t1n5jh6t9m68n5m6o7iscsi.apps.googleusercontent.com') {
         localStorage.setItem('oauth2-test-params', JSON.stringify(params) );
+        callback();
       } else if (xhr.readyState == 4) {
         console.log('There was an error processing the token, another ' +
                     'response was returned, or the token was invalid.')
@@ -42,21 +33,78 @@ function exchangeOAuth2Token(params) {
   }
 }
 
-    });
+function getBookshelves(){
+  endpointGetRequest('http://localhost:8080/user/get/', function (user) {
+    var bookshelfIDs = user.bookshelves;
+    loadBookshelves(bookshelves);
+  });
+}
 
-	function trySampleRequest() {
-    var params = JSON.parse(localStorage.getItem('oauth2-test-params'));
-    if (params && params['access_token']) {
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET',
-          'http://localhost:8080/user/get/');//&' +
-          //'access_token=' + params['access_token']);
-      xhr.onreadystatechange = function (e) {
-        console.log(xhr.response);
-      };
-      xhr.setRequestHeader('Authorization', 'Bearer ' + params['access_token']);
-      xhr.send(null);
-    } else {
-      oauth2SignIn();
+//TODO: redirect to new error window??
+function endpointGetRequest(url, callback, id) {
+  var params = JSON.parse(localStorage.getItem('oauth2-test-params'));
+  if (params && params['access_token']) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.onreadystatechange = function (e) {
+      console.log(xhr.response);
+      callback(xhr.response);
+    };
+    xhr.setRequestHeader('Authorization', 'Bearer ' + params['access_token']);
+    if (id){
+      xhr.setRequestHeader('id', id);
     }
+    xhr.send(null);
+  } else {
+    console.log("unauthorized!!");
   }
+}
+
+function loadBookshelves(bookshelves){
+  for(int i = 0; i < bookshelves.size(); i++){
+    var bookshelfId = bookshelves[i];
+    var color = getColor(i, bookshelves.size());
+
+    endpointGetRequest('http://localhost:8080/bookshelf/get/', function(bookshelf) {
+      displayBookshelf(color, bookshelf);
+    }, bookshelfId);
+  }
+}
+
+function displayBookshelf(color, bookshelf){
+  var bookshelfHolder = document.getElementById("bookshelves");
+  bookshelfHolder.innerHTML +=
+    "<div class='col-md-4'>" +
+    "  <div class='card card-stats'>" +
+    "    <div class='card-header' data-background-color='" + color + "'>" +
+    "      <i class='material-icons'>content_copy</i>" +
+    "    </div>" +
+    "    <div class='card-content'>" +
+    "      <p class='category'>" + bookshelf.name + "</p>" +
+    "      <h3 class='title'>" + bookshelf.books.size() + " Books</h3>" +
+    "    </div>" +
+    "    <div class='card-footer'>" +
+    "      <div class='stats'><a href='bookshelf.html'>View Books...</a>" +
+    "      </div>" +
+    "    </div>" +
+    "  </div>" +
+    "</div>";
+}
+
+function getColor(index, length){
+  var color = "orange";
+  if (i%length == 0){
+    color = "pink";
+  } else if (i%length == 1){
+    color = "green";
+  } else if (i%length == 2){
+    color = "red";
+  } else if (i%length == 3){
+    color = "purple";
+  } else if (i%length == 4){
+    color = "orange";
+  } else if (i%length == 5){
+    color = "blue";
+  }
+  return color;
+}
