@@ -62,7 +62,8 @@ function endpointGetRequest(url, callback, id) {
   }
 }
 
-function loadBookshelves(bookshelves){
+function loadBookshelves(response){
+  var bookshelves = JSON.parse(response);
   for(var i = 0; i < bookshelves.size(); i++){
     var bookshelfId = bookshelves[i];
     var color = getColor(i, bookshelves.size());
@@ -73,7 +74,8 @@ function loadBookshelves(bookshelves){
   }
 }
 
-function displayBookshelf(color, bookshelf){
+function displayBookshelf(color, response){
+  var bookshelf = JSON.parse(response);
   var bookshelfHolder = document.getElementById("bookshelves");
   bookshelfHolder.innerHTML +=
     "<div class='col-md-4'>" +
