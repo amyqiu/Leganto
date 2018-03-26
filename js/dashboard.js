@@ -7,6 +7,7 @@ $(document).ready(function() {
     // Try to exchange the param values for an access token.
     if (params['access_token']) {
       exchangeOAuth2Token(params, getBookshelves);
+      break;
     }
   }
 });
