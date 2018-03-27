@@ -11,5 +11,5 @@ function createBookshelf(){
 }
 
 function redirect(){
-  window.location.href = "dashbaord.html";
+  window.location.href = "dashboard";
 }
