@@ -52,7 +52,7 @@ function endpointPostRequest(url, callback, body, id) {
 
     http.open("POST", url, true);
 
-    xhr.setRequestHeader('Authorization', 'Bearer ' + params['access_token']);
+    http.setRequestHeader('Authorization', 'Bearer ' + params['access_token']);
     http.setRequestHeader("Content-type", "application/json");
     if (id){
         http.setRequestHeader("id", id);
