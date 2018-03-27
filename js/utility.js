@@ -52,7 +52,7 @@ function endpointPostRequest(url, callback, body, id) {
 
   http.setRequestHeader("Content-type", "application/json");
   if (id){
-      http.setRequestHeader("bookshelfId", id);
+      http.setRequestHeader("id", id);
   }
 
   http.onreadystatechange = function() {//Call a function when the state changes.

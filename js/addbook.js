@@ -12,7 +12,7 @@ function createBook(){
   var rating = document.getElementById("rating").value;
   var date = document.getElementById("date").value;
   var genre = document.getElementById("genre").value;
-  var completed = document.getElementById("completed").value;
+  var completed = document.getElementById("completed").checked;
   var image = document.getElementById("image").value;
   var review = document.getElementById("review").value;
 
