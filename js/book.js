@@ -10,6 +10,9 @@ function loadBook(response){
   var heading = document.getElementById("heading");
   heading.innerHTML = book.title;
 
+  var image = document.getElementById("image");
+  image.src = book.image;
+
   var title = document.getElementById("title");
   title.innerHTML = book.title;
 
@@ -29,7 +32,7 @@ function loadBook(response){
   dueDate.innerHTML = book.dueDate;
 
   var genre = document.getElementById("genre");
-  dueDate.innerHTML = book.genre;
+  genre.innerHTML = book.genre;
 
   var completed = document.getElementById("completed");
   completed.checked = book.isCompleted;
