@@ -22,7 +22,7 @@ function displayBook(response){
   var book = JSON.parse(response);
   var bookHolder = document.getElementById("books");
   bookHolder.innerHTML +=
-    "<div class='col-md-4'>" +
+    "<div class='col-md-4 book'>" +
   	"  <div class='card card-profile'>" +
   	"      <div class='card-avatar'>" +
   	"        <img class='img' src='" + book.image + "' />" +

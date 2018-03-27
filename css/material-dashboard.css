@@ -2570,6 +2570,10 @@ output {
   margin-top: 30px !important;
 }
 
+.book {
+  margin-bottom: 30px !important;
+}
+
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
     input[type="date"].form-control,
     input[type="time"].form-control,
