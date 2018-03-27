@@ -2210,7 +2210,7 @@ fieldset[disabled] .navbar .navbar-nav>li>a.btn.btn-rose.active {
 .btn-group-sm .btn.btn-fab .material-icons,
 .navbar .navbar-nav>li>a.btn.btn-fab.btn-fab-mini .material-icons,
 .btn-group-sm .navbar .navbar-nav>li>a.btn.btn-fab .material-icons {
-    font-size: 17px;
+    font-size: 13px;
 }
 
 .btn.btn-fab i.material-icons,

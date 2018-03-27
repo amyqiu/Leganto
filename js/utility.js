@@ -68,3 +68,24 @@ function endpointPostRequest(url, callback, body, id) {
     http.send(JSON.stringify(body));
   }
 }
+
+function endpointDeleteRequest(url, callback, id) {
+  var params = JSON.parse(sessionStorage.getItem('oauth2-test-params'));
+  if (params && params['access_token']) {
+    var http = new XMLHttpRequest();
+
+    http.open("DELETE", url, true);
+
+    http.setRequestHeader('Authorization', 'Bearer ' + params['access_token']);
+    http.setRequestHeader("id", id);
+
+    http.onreadystatechange = function() {//Call a function when the state changes.
+        if(http.readyState == 4 && http.status == 201) {
+            callback();
+        } else if (http.readyState == 4){
+          console.log("Error has occurred in delete request");
+        }
+    }
+    http.send(null);
+  }
+}

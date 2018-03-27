@@ -44,6 +44,9 @@ function displayBookshelf(color, response){
   bookshelfHolder.innerHTML +=
     "<div class='col-md-4'>" +
     "  <div class='card card-stats'>" +
+    "  <div>" +
+    "  <button onclick='deleteBookshelf(" + bookshelf.id + ")' class='btn btn-danger btn-fab btn-fab-mini pull-right'>X</button>" +
+    "  </div>" +
     "    <div class='card-header' data-background-color='" + color + "'>" +
     "      <i class='material-icons'>content_copy</i>" +
     "    </div>" +
@@ -75,4 +78,10 @@ function getColor(i, length){
     color = "blue";
   }
   return color;
+}
+
+function deleteBookshelf(id){
+  endpointDeleteRequest("http://localhost:8080/bookshelf/delete/",  function (response) {
+    location.reload();
+  }, id);
 }
