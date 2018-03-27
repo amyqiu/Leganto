@@ -101,7 +101,25 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row" id="books">
-
+                      <div class='col-md-4 book'>
+                    	  <div class='card card-profile'>
+                          <div>
+                            <button onclick="deleteBookshelf()" class='btn btn-danger btn-fab btn-fab-mini pull-right delete'>X</button>
+                          </div>
+                    	      <div class='card-avatar'>
+                    	        <img class='img' src='images/pride.jpg' />
+                    	      </div>
+                    	      <div class='content'>
+                    	          <h4 class='card-title'>Title</h4>
+                    	          <h6 class='category text-gray'>By: Authorization</h6>
+                    	          <p >Review</p>
+                    	          <h7 class='category'>Rating: 9/10</h6>
+                    	            <div>
+                    	          <a href='book?id=" + book.id + "' class='btn btn-primary btn-round'>View More Details</a>
+                    	        </div>
+                    	      </div>
+                    	  </div>
+                    	</div>
                     </div>
                 </div>
             </div>

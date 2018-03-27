@@ -24,7 +24,10 @@ function displayBook(response){
   bookHolder.innerHTML +=
     "<div class='col-md-4 book'>" +
   	"  <div class='card card-profile'>" +
-  	"      <div class='card-avatar'>" +
+    "      <div>" +
+    "        <button onclick=\"deleteBook('" + book.id + "')\" class='btn btn-danger btn-fab btn-fab-mini pull-right delete'>X</button>" +
+    "      </div>" +
+    "      <div class='card-avatar'>" +
   	"        <img class='img' src='" + book.image + "' />" +
   	"      </div>" +
   	"      <div class='content'>" +
@@ -38,4 +41,10 @@ function displayBook(response){
   	"      </div>" +
   	"  </div>" +
   	"</div>";
+}
+
+function deleteBook(id){
+  endpointDeleteRequest("http://localhost:8080/book/delete/",  function (response) {
+    location.reload(true);
+  }, id);
 }

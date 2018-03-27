@@ -69,7 +69,7 @@ function endpointPostRequest(url, callback, body, id) {
   }
 }
 
-function endpointDeleteRequest(url, callback, id) {
+function endpointDeleteRequest(url, callback, id, bookshelfId) {
   var params = JSON.parse(sessionStorage.getItem('oauth2-test-params'));
   if (params && params['access_token']) {
     var http = new XMLHttpRequest();
@@ -78,6 +78,10 @@ function endpointDeleteRequest(url, callback, id) {
 
     http.setRequestHeader('Authorization', 'Bearer ' + params['access_token']);
     http.setRequestHeader("id", id);
+
+    if(bookshelfId){
+      http.setRequestHeader("bookshelfId", bookshelfId);
+    }
 
     http.onreadystatechange = function() {//Call a function when the state changes.
         if(http.readyState == 4 && http.status == 204) {
