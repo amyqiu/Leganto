@@ -44,7 +44,10 @@ function displayBook(response){
 }
 
 function deleteBook(id){
+  var params = (new URL(document.location)).searchParams;
+  var bookshelfId = params.get("id");
+
   endpointDeleteRequest("http://localhost:8080/book/delete/",  function (response) {
     location.reload(true);
-  }, id);
+  }, id, bookshelfId);
 }
