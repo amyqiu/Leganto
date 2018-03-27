@@ -65,6 +65,6 @@ function endpointPostRequest(url, callback, body, id) {
           console.log("Error has occurred in post request");
         }
     }
-    http.send(body);
+    http.send(JSON.stringify(body));
   }
 }
