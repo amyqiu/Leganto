@@ -9,6 +9,9 @@ function loadBooks(response){
   var bookshelfTitle = document.getElementById("bookshelf-title");
   bookshelfTitle.innerHTML = bookshelf.name;
 
+  var header = document.getElementById("header");
+  header.innerHTML += "<a href='addbook.html?id=" + bookshelf.id + "' class='btn btn-primary btn-google'>Add a Book</a>";
+
   var books = bookshelf.books;
   for(var i = 0; i < books.length; i++){
     endpointGetRequest('http://localhost:8080/book/get/', displayBook, books[i]);
