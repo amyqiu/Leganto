@@ -33,7 +33,7 @@ function displayBook(response){
   	"          <p >" + book.review + 	"</p>" +
   	"          <h7 class='category'>Rating: " + book.rating + "/10</h6>" +
   	"            <div>" +
-  	"          <a href='#pablo' class='btn btn-primary btn-round'>View More Details</a>" +
+  	"          <a href='book.html?id=" + book.id + "' class='btn btn-primary btn-round'>View More Details</a>" +
   	"        </div>" +
   	"      </div>" +
   	"  </div>" +
