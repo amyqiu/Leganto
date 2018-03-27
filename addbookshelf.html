@@ -66,8 +66,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand"> My Bookshelves </a>
-                        <a href='addbookshelf' class='btn btn-primary btn-google'>Add a Bookshelf</a>
+                        <a class="navbar-brand"> Add a Bookshelf </a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -101,7 +100,26 @@
             </nav>
             <div class="content">
                 <div class="container-fluid">
-                    <div class="row" id="bookshelves">
+                    <div class="row">
+                      <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header" data-background-color="blue">
+                                    <h4 class="title">Bookshelf Details</h4>
+                                </div>
+                                <div class="card-content">
+                                      <div class="row">
+                                          <div class="col-md-12">
+                                              <div class="form-group label-floating">
+                                                  <label class="control-label">Name</label>
+                                                  <input type="text" id="name" class="form-control">
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <button onclick="createBookshelf()" class="btn btn-primary pull-right">Create New Bookshelf</button>
+                                      <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -125,7 +143,7 @@
 <!-- Material Dashboard javascript methods -->
 <script src="js/material-dashboard.js?v=1.2.0"></script>
 <script src="js/utility.js"></script>
-<script src="js/dashboard.js"></script>
+<script src="js/addbookshelf.js"></script>
 </body>
 
 </html>
