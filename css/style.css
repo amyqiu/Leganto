@@ -52,25 +52,35 @@ body {
   text-transform: uppercase;
   cursor: pointer;
   display: block;
-  /* margin: 0 0 0 85px; */
+  margin: 0 130px;
 
 }
 .form-panel {
-  padding: 60px /*calc(5% + 60px) 60px 60px*/;
+  padding: 60px 60px 30px 60px/*calc(5% + 60px) 60px 60px*/;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 .form-header {
-  margin: 0 0 60px;
+  margin: 0 0 30px;
 }
 .form-header h1 {
   padding: 4px 0;
   color: #6D4C41;
-  font-size: 56px;
+  font-size: 65px;
   text-align: center;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
+  text-shadow: 2px 2px 2px #BDBDBD;
 }
 #login {
 	background: #F44336 !important;
+}
+.form-subtitle{
+  margin: 0 0 40px;
+}
+.form-subtitle p {
+  font-size: 19px;
+  text-align: center;
+  padding: 4px 0;
+  font-style: italic;
 }
