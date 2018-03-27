@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var params = (new URL(document.location)).searchParams;
   var id = params.get("id");
-  endpointGetRequest('http://localhost:8080/book/get/', loadBooks, id);
+  endpointGetRequest('http://localhost:8080/book/get/', loadBook, id);
 });
 
 function loadBook(response){
