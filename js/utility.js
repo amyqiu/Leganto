@@ -80,7 +80,7 @@ function endpointDeleteRequest(url, callback, id) {
     http.setRequestHeader("id", id);
 
     http.onreadystatechange = function() {//Call a function when the state changes.
-        if(http.readyState == 4 && http.status == 201) {
+        if(http.readyState == 4 && http.status == 404) {
             callback();
         } else if (http.readyState == 4){
           console.log("Error has occurred in delete request");
