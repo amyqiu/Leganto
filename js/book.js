@@ -8,7 +8,7 @@ function loadBook(response){
   var book = JSON.parse(response);
 
   var heading = document.getElementById("heading");
-  header.innerHTML = book.title;
+  heading.innerHTML = book.title;
 
   var title = document.getElementById("title");
   title.innerHTML = book.title;
