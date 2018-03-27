@@ -22,9 +22,9 @@ function createBook(){
     hours,
     pages,
     rating,
-    date,
+    dueDate,
     genre,
-    completed,
+    isCompleted,
     image,
     review
   }
