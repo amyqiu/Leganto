@@ -10,9 +10,9 @@ function loadBooks(response){
   bookshelfTitle.innerHTML = bookshelf.name;
 
   var header = document.getElementById("header");
-  header.innerHTML += "<a href='addbook.html?id=" + bookshelf.id + "' class='btn btn-primary btn-google'>Add a Book</a>";
+  header.innerHTML += "<a href='addbook?id=" + bookshelf.id + "' class='btn btn-primary btn-google'>Add a Book</a>";
 
-  var books = bookshelf.books;
+  var books = bookshelf.books.sort();
   for(var i = 0; i < books.length; i++){
     endpointGetRequest('http://localhost:8080/book/get/', displayBook, books[i]);
   }
@@ -33,7 +33,7 @@ function displayBook(response){
   	"          <p >" + book.review + 	"</p>" +
   	"          <h7 class='category'>Rating: " + book.rating + "/10</h6>" +
   	"            <div>" +
-  	"          <a href='book.html?id=" + book.id + "' class='btn btn-primary btn-round'>View More Details</a>" +
+  	"          <a href='book?id=" + book.id + "' class='btn btn-primary btn-round'>View More Details</a>" +
   	"        </div>" +
   	"      </div>" +
   	"  </div>" +

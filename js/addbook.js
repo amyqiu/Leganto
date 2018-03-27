@@ -35,7 +35,7 @@ function createBook(){
 }
 
 function redirect(){
-  window.location.href = "bookshelf.html?id=" + getBookshelfId();
+  window.location.href = "bookshelf?id=" + getBookshelfId();
 }
 
 function getBookshelfId(){

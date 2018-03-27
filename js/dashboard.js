@@ -21,7 +21,7 @@ function getBookshelves(){
   endpointGetRequest('http://localhost:8080/user/get/', function (response) {
     var user = JSON.parse(response);
     var bookshelfIDs = user.bookshelves;
-    loadBookshelves(bookshelfIDs);
+    loadBookshelves(bookshelfIDs.sort());
   });
 }
 
@@ -52,7 +52,7 @@ function displayBookshelf(color, response){
     "      <h3 class='title'>" + bookshelf.books.length + " Books</h3>" +
     "    </div>" +
     "    <div class='card-footer'>" +
-    "      <div class='stats'><a href='bookshelf.html?id=" + bookshelf.id + "'>View Books...</a>" +
+    "      <div class='stats'><a href='bookshelf?id=" + bookshelf.id + "'>View Books...</a>" +
     "      </div>" +
     "    </div>" +
     "  </div>" +
