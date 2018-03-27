@@ -45,7 +45,7 @@ function displayBookshelf(color, response){
     "<div class='col-md-4'>" +
     "  <div class='card card-stats'>" +
     "  <div>" +
-    "  <button onclick='deleteBookshelf('" + bookshelf.id + "')' class='btn btn-danger btn-fab btn-fab-mini pull-right'>X</button>" +
+    "  <button onclick=\"deleteBookshelf('" + bookshelf.id + "')\" class='btn btn-danger btn-fab btn-fab-mini pull-right'>X</button>" +
     "  </div>" +
     "    <div class='card-header' data-background-color='" + color + "'>" +
     "      <i class='material-icons'>content_copy</i>" +
