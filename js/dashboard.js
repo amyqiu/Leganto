@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var params = JSON.parse(localStorage.getItem('oauth2-test-params'));
+  var params = JSON.parse(sessionStorage.getItem('oauth2-test-params'));
   if (params && params['access_token']) {
     getBookshelves();
     return;

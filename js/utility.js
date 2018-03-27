@@ -11,7 +11,7 @@ function exchangeOAuth2Token(params, callback) {
           xhr.status == 200 &&
           response['aud'] &&
           response['aud'] == '661489902931-8jdkv5dr7t1n5jh6t9m68n5m6o7iscsi.apps.googleusercontent.com') {
-        localStorage.setItem('oauth2-test-params', JSON.stringify(params) );
+        sessionStorage.setItem('oauth2-test-params', JSON.stringify(params) );
         callback();
       } else if (xhr.readyState == 4) {
         console.log('There was an error processing the token, another ' +
@@ -23,7 +23,7 @@ function exchangeOAuth2Token(params, callback) {
 }
 
 function endpointGetRequest(url, callback, id) {
-  var params = JSON.parse(localStorage.getItem('oauth2-test-params'));
+  var params = JSON.parse(sessionStorage.getItem('oauth2-test-params'));
   if (params && params['access_token']) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url);
