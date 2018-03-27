@@ -46,21 +46,25 @@ function endpointGetRequest(url, callback, id) {
 }
 
 function endpointPostRequest(url, callback, body, id) {
-  var http = new XMLHttpRequest();
+  var params = JSON.parse(sessionStorage.getItem('oauth2-test-params'));
+  if (params && params['access_token']) {
+    var http = new XMLHttpRequest();
 
-  http.open("POST", url, true);
+    http.open("POST", url, true);
 
-  http.setRequestHeader("Content-type", "application/json");
-  if (id){
-      http.setRequestHeader("id", id);
+    xhr.setRequestHeader('Authorization', 'Bearer ' + params['access_token']);
+    http.setRequestHeader("Content-type", "application/json");
+    if (id){
+        http.setRequestHeader("id", id);
+    }
+
+    http.onreadystatechange = function() {//Call a function when the state changes.
+        if(http.readyState == 4 && http.status == 200) {
+            callback();
+        } else if (http.readyState == 4){
+          console.log("Error has occurred in post request");
+        }
+    }
+    http.send(body);
   }
-
-  http.onreadystatechange = function() {//Call a function when the state changes.
-      if(http.readyState == 4 && http.status == 200) {
-          callback();
-      } else if (http.readyState == 4){
-        console.log("Error has occurred in post request");
-      }
-  }
-  http.send(body);
 }
