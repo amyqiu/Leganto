@@ -82,6 +82,6 @@ function getColor(i, length){
 
 function deleteBookshelf(id){
   endpointDeleteRequest("http://localhost:8080/bookshelf/delete/",  function (response) {
-    location.reload();
+    location.reload(true);
   }, id);
 }
