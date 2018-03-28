@@ -10,7 +10,7 @@ function loadNotifications(notifications){
   for(var i = 0; i < notifications.length; i++){
     (function(){
       var notificationId = notifications[i];
-      endpointGetRequest('http://localhost:8080/notification/get/', displayNotification);
+      endpointGetRequest('http://localhost:8080/notification/get/', displayNotification, notificationId);
     })();
   }
 }
