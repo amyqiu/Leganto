@@ -35,7 +35,7 @@
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li class="active">
+                    <li>
                         <a href="dashboard">
                             <i class="material-icons">dashboard</i>
                             <p>My Bookshelves</p>
@@ -47,8 +47,8 @@
                             <p>My Goals</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="notification">
+                    <li class="active">
+                        <a href="notification" >
                             <i class="material-icons text-gray">notifications</i>
                             <p>My Notifications</p>
                         </a>
@@ -86,18 +86,32 @@
                       <div class="col-md-8">
                             <div class="card">
                                 <div class="card-header" data-background-color="blue">
-                                    <h4 class="title">Bookshelf Details</h4>
+                                    <h4 class="title">Goal Details</h4>
                                 </div>
                                 <div class="card-content">
                                       <div class="row">
-                                          <div class="col-md-12">
+                                          <div class="col-md-8">
                                               <div class="form-group label-floating">
-                                                  <label class="control-label">Name</label>
-                                                  <input type="text" id="name" class="form-control">
+                                                  <label class="control-label">Title</label>
+                                                  <input type="text" id="title" class="form-control">
                                               </div>
                                           </div>
                                       </div>
-                                      <button onclick="createBookshelf()" class="btn btn-primary pull-right">Create New Bookshelf</button>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Type</label>
+                                                <input type="text" id="type" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Deadline</label>
+                                                <input type="text" id="deadline" class="form-control">
+                                            </div>
+                                        </div>
+                                      </div>
+                                      <button onclick="createGoal()" class="btn btn-primary pull-right">Create New Bookshelf</button>
                                       <div class="clearfix"></div>
                                 </div>
                             </div>
