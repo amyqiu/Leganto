@@ -49,7 +49,7 @@ function loadGoal(response){
   	"		  </div>" +
   	"		  <div class='card-content'>" +
   	"			  <p class='category'>" + statistic.value + " " + goal.type + "s</p>" +
-  	"			 <br><br><br><br> <h4 class='title'>" + goal.title + "</h3>" +
+  	"			 <br><br><br> <h4 class='title'>" + goal.title + "</h3>" +
   	"		  </div>" +
   	"		  <div class='card-footer'>" +
   	"			  <div class='stats'>By " + goal.deadline + "</div>" +
