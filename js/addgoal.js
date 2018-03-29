@@ -6,7 +6,7 @@ function createGoal(){
     "value" : value
   }
 
-  endpointPostRequest("http://localhost:8080/statistic/post/", redirect, stat)
+  endpointPostRequest("http://localhost:8080/statistic/post/", createRestOfGoal, stat)
 }
 
 function createRestOfGoal(){
