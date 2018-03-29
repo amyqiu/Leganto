@@ -9,15 +9,19 @@ function createGoal(){
   endpointPostRequest("http://localhost:8080/statistic/post/", createRestOfGoal, stat)
 }
 
-function createRestOfGoal(){
+function createRestOfGoal(response){
   var title = document.getElementById("title").value;
   var type = document.getElementById("type").value;
   var deadline = document.getElementById("deadline").value;
 
+  var stat = JSON.parse(response);
+  var statistic = stat.id;
+
   var goal = {
     title,
     type,
-    deadline
+    deadline,
+    statistic
   }
 
   endpointPostRequest("http://localhost:8080/goal/post/", redirect, goal)

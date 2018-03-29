@@ -60,7 +60,7 @@ function endpointPostRequest(url, callback, body, id) {
 
     http.onreadystatechange = function() {//Call a function when the state changes.
         if(http.readyState == 4 && http.status == 201) {
-            callback();
+            callback(http.response);
         } else if (http.readyState == 4){
           console.log("Error has occurred in post request");
         }
