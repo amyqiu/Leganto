@@ -48,11 +48,11 @@ function loadGoal(response){
   	"			  <i class='material-icons'>assignment</i>" +
   	"		  </div>" +
   	"		  <div class='card-content'>" +
-  	"			  <p class='category'>" + goal.title + "</p>" +
-  	"			  <h4 class='title'>" + statistic.value + " " + goal.type + "s</h3>" +
+  	"			  <p class='category'>" + statistic.value + " " + goal.type + "</p>" +
+  	"			 <br><br> <h4 class='title'>" + goal.title + "s</h3>" +
   	"		  </div>" +
   	"		  <div class='card-footer'>" +
-  	"			  <div class='stats'>By" + goal.deadline + "</div>" +
+  	"			  <div class='stats'>By " + goal.deadline + "</div>" +
   	"		  </div>" +
   	"	  </div>" +
   	" </div>";
