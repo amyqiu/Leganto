@@ -26,7 +26,7 @@ function loadBook(response){
   rating.setAttribute("value", book.rating);
 
   var dueDate = document.getElementById("date");
-  dueDate.setAttribute("value", book.date);
+  dueDate.setAttribute("value", book.dueDate);
 
   var genre = document.getElementById("genre");
   genre.setAttribute("value", book.genre);
