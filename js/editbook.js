@@ -35,12 +35,7 @@ function loadBook(response){
   completed.setAttribute("checked", book.completed);
 
   var review = document.getElementById("review");
-  review.setAttribute("value", book.review);
-
-  var button = document.getElementById("button");
-  document.getElementById("something").onclick = function() {
-    window.location.href = "https://amyqiu.github.io/Leganto/editbook?id=" + book.id;
-  };
+  review.innerHTML = book.review;
 }
 
 function saveBook(){
