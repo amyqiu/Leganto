@@ -32,7 +32,7 @@ function loadBook(response){
   genre.setAttribute("value", book.genre);
 
   var completed = document.getElementById("completed");
-  completed.setAttribute("checked", book.isCompleted);
+  completed.checked = book.isCompleted;
 
   var review = document.getElementById("review");
   review.innerHTML = book.review;
