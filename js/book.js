@@ -41,7 +41,7 @@ function loadBook(response){
   review.innerHTML = book.review;
 
   var button = document.getElementById("button");
-  document.getElementById("something").onclick = function() {
+  button.onclick = function() {
     window.location.href = "https://amyqiu.github.io/Leganto/editbook?id=" + book.id;
   };
 }
