@@ -34,26 +34,26 @@
                 </a>
             </div>
             <div class="sidebar-wrapper">
-              <ul class="nav">
-                  <li class="active">
-                      <a href="dashboard">
-                          <i class="material-icons">dashboard</i>
-                          <p>My Bookshelves</p>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="goal">
-                          <i class="material-icons">content_paste</i>
-                          <p>My Goals</p>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="notification">
-                          <i class="material-icons text-gray">notifications</i>
-                          <p>My Notifications</p>
-                      </a>
-                  </li>
-              </ul>
+                <ul class="nav">
+                    <li class="active">
+                        <a href="dashboard">
+                            <i class="material-icons">dashboard</i>
+                            <p>My Bookshelves</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="goal">
+                            <i class="material-icons">content_paste</i>
+                            <p>My Goals</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="notification">
+                            <i class="material-icons text-gray">notifications</i>
+                            <p>My Notifications</p>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="main-panel">
@@ -66,7 +66,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" id="heading"> </a>
+                        <a class="navbar-brand"> Edit a Book </a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -84,69 +84,72 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                      <div class="col-md-4">
-                            <div class="card">
-                              <img id="image" class='img' height="150" width="100"/>
-                            </div>
-                      </div>
                       <div class="col-md-8">
                             <div class="card">
-                                <div class="card-header" data-background-color="green">
-                                    <h4 class="title">Book Details</h4>
+                                <div class="card-header" data-background-color="pink">
+                                    <h4 class="title">Edit Book Details</h4>
                                 </div>
                                 <div class="card-content">
                                     <!-- <form> -->
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
-                                                    <label>Title</label>
-                                                    <p id="title"></p>
+                                                    <label class="control-label">Title</label>
+                                                    <input type="text" id="title" class="form-control" value="Hi Title">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
-                                                  <label>Author</label>
-                                                  <p id="author"></p>
+                                                    <label class="control-label">Author</label>
+                                                    <input type="text" id="author" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group label-floating">
-                                                  <label>Hours Spent Reading</label>
-                                                  <p id="hours"></p>
+                                                    <label class="control-label">Hours Spent Reading</label>
+                                                    <input type="text" id="hours" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group label-floating">
-                                                    <label>Page Count</label>
-                                                    <p id="pages"></p>
+                                                    <label class="control-label">Page Count</label>
+                                                    <input type="text" id="pages" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group label-floating">
-                                                    <label>Rating</label>
-                                                    <p id="rating"></p>
+                                                    <label class="control-label">Rating out of 10</label>
+                                                    <input type="text" id="rating" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group label-floating">
-                                                    <label>Due Date</label>
-                                                    <p id="date"></p>
+                                                    <label class="control-label">Due Date (DD/MM/YYYY)</label>
+                                                    <input type="text" id="date" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group label-floating">
-                                                    <label>Genre</label>
-                                                    <p id="genre"></p>
+                                                    <label class="control-label">Genre</label>
+                                                    <input type="text" id="genre" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label add-checkbox-label">Completed:</label>
-                                                    <input type="checkbox" id="completed" onclick="return false" class="form-control add-checkbox">
+                                                    <input type="checkbox" id="completed" class="form-control add-checkbox">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Image URL</label>
+                                                    <input type="text" id="image" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -154,15 +157,13 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <div class="form-group label-floating">
-                                                        <label>Review</label>
-                                                        <p id="review"></p>
+                                                        <label class="control-label">Review</label>
+                                                        <textarea class="form-control" id="review" rows="5"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div>
-                                          <button id="button" class="btn btn-primary pull-right">Edit Details</button>
-                                        </div>
+                                        <button onclick="saveBook()" class="btn btn-primary pull-right">Save Book</button>
                                         <div class="clearfix"></div>
                                     <!-- </form> -->
                                 </div>
@@ -191,7 +192,7 @@
 <!-- Material Dashboard javascript methods -->
 <script src="js/material-dashboard.js?v=1.2.0"></script>
 <script src="js/utility.js"></script>
-<script src="js/book.js"></script>
+<script src="js/addbook.js"></script>
 </body>
 
 </html>

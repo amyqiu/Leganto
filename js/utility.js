@@ -69,6 +69,31 @@ function endpointPostRequest(url, callback, body, id) {
   }
 }
 
+
+function endpointPuttRequest(url, callback, body, id) {
+  var params = JSON.parse(sessionStorage.getItem('oauth2-test-params'));
+  if (params && params['access_token']) {
+    var http = new XMLHttpRequest();
+
+    http.open("PUT", url, true);
+
+    http.setRequestHeader('Authorization', 'Bearer ' + params['access_token']);
+    http.setRequestHeader("Content-type", "application/json");
+    if (id){
+        http.setRequestHeader("id", id);
+    }
+
+    http.onreadystatechange = function() {//Call a function when the state changes.
+        if(http.readyState == 4 && http.status == 201) {
+            callback(http.response);
+        } else if (http.readyState == 4){
+          console.log("Error has occurred in put request");
+        }
+    }
+    http.send(JSON.stringify(body));
+  }
+}
+
 function endpointDeleteRequest(url, callback, id, bookshelfId) {
   var params = JSON.parse(sessionStorage.getItem('oauth2-test-params'));
   if (params && params['access_token']) {

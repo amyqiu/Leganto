@@ -1,9 +1,3 @@
-// $(document).ready(function() {
-//   var params = (new URL(document.location)).searchParams;
-//   var id = params.get("id");
-//   endpointGetRequest('http://localhost:8080/bookshelf/get/', loadBooks, id);
-// });
-
 function createBook(){
   var title = document.getElementById("title").value;
   var author = document.getElementById("author").value;
