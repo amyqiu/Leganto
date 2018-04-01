@@ -69,7 +69,7 @@ function saveBook(){
 }
 
 function redirect(){
-  window.location.href = "book?id=" + getBookshelfId();
+  window.location.href = "book?id=" + getBookId();
 }
 
 function getBookId(){
