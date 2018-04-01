@@ -84,7 +84,7 @@ function endpointPutRequest(url, callback, body, id) {
     }
 
     http.onreadystatechange = function() {//Call a function when the state changes.
-        if(http.readyState == 4 && http.status == 201) {
+        if(http.readyState == 4 && http.status == 200) {
             callback(http.response);
         } else if (http.readyState == 4){
           console.log("Error has occurred in put request");
