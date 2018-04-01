@@ -70,7 +70,7 @@ function endpointPostRequest(url, callback, body, id) {
 }
 
 
-function endpointPuttRequest(url, callback, body, id) {
+function endpointPutRequest(url, callback, body, id) {
   var params = JSON.parse(sessionStorage.getItem('oauth2-test-params'));
   if (params && params['access_token']) {
     var http = new XMLHttpRequest();
