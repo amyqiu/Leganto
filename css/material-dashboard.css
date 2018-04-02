@@ -5285,7 +5285,6 @@ footer .btn {
     width: 60px;
     height: 90px;
     overflow: hidden;
-    /* border-radius: 50%; */
     margin-right: 5px;
 }
 
@@ -5432,7 +5431,6 @@ footer .btn {
     width: 200px;
     height: 300px;
     margin: -50px 50px 0;
-    /* border-radius: 50%; */
     overflow: hidden;
     box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
